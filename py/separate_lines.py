@@ -33,12 +33,12 @@ def row_is_white (y_coord, width):
 print('Exporting lines... ', end='')
 
 # create folder for the images we want to export
-if os.path.isdir('..\\lines'):
-    shutil.rmtree('..\\lines')
-os.makedirs('..\\lines')
+if os.path.isdir('lines'):
+    shutil.rmtree('lines')
+os.makedirs('lines')
 
 # open file
-score_image = Image.open(Path('..\\input.jpg'))
+score_image = Image.open(Path('input.jpg'))
 width, height = score_image.size
 top = 0
 bottom = height
@@ -74,7 +74,7 @@ while y_coord < height:
             #end of stave has been found, print output
             file_name = 'output_' + str(detected_lines) + '.jpg'
             out_image = score_image.crop((left, top, right, y_coord))
-            out_image.save(Path('..\\lines') / file_name)
+            out_image.save(Path('lines') / file_name)
 
             # preparations for next line
             detected_lines += 1

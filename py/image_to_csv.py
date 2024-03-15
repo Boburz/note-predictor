@@ -8,19 +8,19 @@ import csv
 def make_it_grey(pixel):
     return int( (pixel[0]+pixel[1]+pixel[2]) / 3 )
 
-print('Exporting to csv... ', end='')
+print('Converting to csv... ', end='')
 
 # create output file
-output_file = Path('..\\grayscales.csv')
+output_file = Path('grayscales.csv')
 if os.path.isfile(output_file):
     os.remove(output_file)
 
 # read all the images in ../bars
-for image_file in os.listdir(Path('..\\bars')):
+for image_file in os.listdir(Path('bars')):
     pixel_list = []
 
     # open image
-    in_image = Image.open(Path('..\\bars') / image_file)
+    in_image = Image.open(Path('bars') / image_file)
     width, height = in_image.size
 
     # make list with pixels

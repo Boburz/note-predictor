@@ -57,9 +57,9 @@ def is_bar_line (x_coord, top_end, bot_end):
 ##########################################################################################
 
 # create folder for the images we want to export
-if os.path.isdir('..\\bars'):
-    shutil.rmtree('..\\bars')
-os.makedirs('..\\bars')
+if os.path.isdir('bars'):
+    shutil.rmtree('bars')
+os.makedirs('bars')
 
 # top and bottom ends of the stave
 top_end = 0
@@ -83,8 +83,8 @@ print('Exporting bars... ', end='')
 
 detected_bars = 0
 
-for in_file in os.listdir(Path('..\\lines')):
-    in_image = Image.open(Path('..\\lines') / in_file)
+for in_file in os.listdir(Path('lines')):
+    in_image = Image.open(Path('lines') / in_file)
     width, height = in_image.size
     bar_lines.clear()
 
@@ -145,7 +145,7 @@ for in_file in os.listdir(Path('..\\lines')):
         file_name += '.png'
         out_image = in_image.crop((bar_lines[0], top-2, bar_lines[1], bottom+2))
         out_image = out_image.resize((exp_width, exp_height))
-        out_image.save(Path('..\\bars') / file_name)
+        out_image.save(Path('bars') / file_name)
 
         # preparations for next bar
         del bar_lines[0]
